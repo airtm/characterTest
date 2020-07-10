@@ -7,7 +7,7 @@
 
 
 ## 文档地址
-- [showdoc](http://showdoc.baozun.com/web/#/134)
+- [showdoc]
 
 
 ### 项目介绍
