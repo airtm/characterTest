@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HelloController {
 
     @RequestMapping("/")
-    public String index(@ModelAttribute(value="message") Message message,ModelMap map) {
+    public String index(@ModelAttribute(value = "message") Message message, ModelMap map) {
         // 加入一个属性，用来在模板中读取
         map.addAttribute("host", "http://blog.didispace.com");
         // return模板文件的名称，对应src/main/resources/templates/index.html
-        map.addAttribute("sex",0);
-        return "index";  
+        map.addAttribute("sex", 0);
+        return "index";
     }
 
-    @RequestMapping(value = "/add", method= RequestMethod.POST)
-    public String save(@ModelAttribute(value="message") Message message,ModelMap map) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    public String save(@ModelAttribute(value = "message") Message message, ModelMap map) {
 
-        map.addAttribute("type","0");
+        map.addAttribute("type", "0");
 
         return "index";
 
