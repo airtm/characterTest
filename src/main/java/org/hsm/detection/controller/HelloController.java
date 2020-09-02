@@ -41,11 +41,11 @@ public class HelloController {
         for(int j=0 ; j<fieldNames.length ; j++) {     //遍历所有属性
             String name = fieldNames[j];    //获取属性的名字
             Object value = getFieldValueByName(name, message);
-            if (value == null) {
-                map.addAttribute("result", "不能为空："+name);
-                map.addAllAttributes(BeanUtil.beanToMap(message));
-                return "index";
-            }
+//            if (value == null) {
+//                map.addAttribute("result", "不能为空："+name);
+//                map.addAllAttributes(BeanUtil.beanToMap(message));
+//                return "index";
+//            }
         }
 
         String test1 = message.getTest1() + message.getTest2() + message.getTest3() + message.getTest4() + message.getTest5() + message.getTest6() + message.getTest7() + message.getTest8()
@@ -81,7 +81,7 @@ public class HelloController {
         map.addAttribute("explain4", result4);
         map.addAllAttributes(BeanUtil.beanToMap(message));
         map.addAttribute("path", "c.jpg");
-        map.addAttribute("aaa", "戳");
+        map.addAttribute("aaa", "戳、性格没有好坏之分，结果分析也只是仅供参考,不保证权威，最终解释权在你自己");
         log.info("性别:"+message.getTest0()+getIpAddr(request)+"|"+红色+蓝色+黄色+绿色);
         return "index";
     }
