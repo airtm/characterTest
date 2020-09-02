@@ -41,11 +41,11 @@ public class HelloController {
         for(int j=0 ; j<fieldNames.length ; j++) {     //遍历所有属性
             String name = fieldNames[j];    //获取属性的名字
             Object value = getFieldValueByName(name, message);
-//            if (value == null) {
-//                map.addAttribute("result", "不能为空："+name);
-//                map.addAllAttributes(BeanUtil.beanToMap(message));
-//                return "index";
-//            }
+            if (value == null) {
+                map.addAttribute("result", "不能为空："+name);
+                map.addAllAttributes(BeanUtil.beanToMap(message));
+                return "index";
+            }
         }
 
         String test1 = message.getTest1() + message.getTest2() + message.getTest3() + message.getTest4() + message.getTest5() + message.getTest6() + message.getTest7() + message.getTest8()
