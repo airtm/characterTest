@@ -2,31 +2,72 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>乐嘉性格色彩测试</title>
 </head>
 <body>
 
-<form action="#" th:action="@{/add}" th:object="${message}" method="post">
+<style>
+   .form-check-label{
+        color:#5a5046de;
+        font-size: 13px;
+    }
+    .form-check{
+        text-indent: 20px;
+    }
+    .sss{
+        position: absolute;
+        left: 300px;
+        width: 600px;
+        height: 40px;
+        font-size: 20px;
+    }
+</style>
+
+<form action="#" th:action="@{/add}" th:object="${message}" method="get">
     <!--        <input type="text" th:field="*{info}" />-->
 
     <div th:text="${result}"></div>
+    <div th:text="${explain}"></div>
+    <div th:text="${explain1}"></div>
+    <div th:text="${explain2}"></div>
+    <div th:text="${explain3}"></div>
+    <div th:text="${explain4}"></div>
 
+    <img  th:src="@{'http://localhost:7052/'+${path}}" height="700px">
+    <a  th:href="@{c.jpg}" th:text="${aaa}" target="_blank"></a>
+
+<!--    <figure class="image"><img src="../static/c.jpg" alt="" width="256" height="62" />-->
+<!--        <figcaption>Caption</figcaption>-->
+<!--    </figure>-->
+
+    <p>==乐嘉性格色彩测试==</p>
+    <div class="form-group">
+        <label>你的性别：</label><br/>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="test0" value="男" th:checked="${'男'.equals(test0)}"/>
+            <label class="form-check-label">A 男</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="test0"  value="女" th:checked="${'女'.equals(test0)}"/>
+            <label class="form-check-label">B 女</label>
+        </div>
+    </div>
     <div class="form-group">
         <label>1、关于人生观，我的内心其实是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test1" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test1" value="A" th:checked="${'A'.equals(test1)}"/>
             <label class="form-check-label">A 希望能够有尽量多的人生体验，所以会有非常多样化的想法。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test1" value="B" />
+            <input class="form-check-input" type="radio" name="test1"  value="B" th:checked="${'B'.equals(test1)}"/>
             <label class="form-check-label">B 在小心合理的基础上，谨慎地确定自己的目标，一旦确定会坚定不移地去做。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test1" value="C" />
+            <input class="form-check-input" type="radio" name="test1"   value="C" th:checked="${'C'.equals(test1)}"/>
             <label class="form-check-label">C 更加注重的是取得一切有可能的成就。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test1" value="D" />
+            <input class="form-check-input" type="radio" name="test1"  value="D" th:checked="${'D'.equals(test1)}"/>
             <label class="form-check-label">D 宁愿剔除风险而享受平静或现状。</label>
         </div>
     </div>
@@ -34,19 +75,19 @@
     <div class="form-group">
         <label>2、如果爬山旅游，在下山回来的路线选择上，我更在乎：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test2" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test2" value="A" th:checked="${'A'.equals(test2)}"/>
             <label class="form-check-label">A 好玩有趣，所以宁愿新路线回巢。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test2" value="B" />
+            <input class="form-check-input" type="radio" name="test2"  value="B" th:checked="${'B'.equals(test2)}"/>
             <label class="form-check-label">B 安全稳妥，所以宁愿原路线返回。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test2" value="C" />
+            <input class="form-check-input" type="radio" name="test2"   value="C" th:checked="${'C'.equals(test2)}"/>
             <label class="form-check-label">C 挑战困难，所以宁愿新路线回巢。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test2" value="D" />
+            <input class="form-check-input" type="radio" name="test2"  value="D" th:checked="${'D'.equals(test2)}"/>
             <label class="form-check-label">D 方便省心，所以宁愿原路线返回。</label>
         </div>
     </div>
@@ -54,19 +95,19 @@
     <div class="form-group">
         <label>3、通常在表达一件事情上，我更看重：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test3" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test3" value="A" th:checked="${'A'.equals(test3)}"/>
             <label class="form-check-label">A 说话给对方感受到的强烈印象。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test3" value="B" />
+            <input class="form-check-input" type="radio" name="test3"  value="B" th:checked="${'B'.equals(test3)}" />
             <label class="form-check-label">B 说话表述的准确程度。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test3" value="C" />
+            <input class="form-check-input" type="radio" name="test3"   value="C" th:checked="${'C'.equals(test3)}" />
             <label class="form-check-label">C 说话所能达到的最终目标。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test3" value="D" />
+            <input class="form-check-input" type="radio" name="test3"  value="D" th:checked="${'D'.equals(test3)}" />
             <label class="form-check-label">D 说话后周围的人际感受是否舒服。</label>
         </div>
     </div>
@@ -74,19 +115,19 @@
     <div class="form-group">
         <label>4、在生命的大多数时候，我的内心其实更加欣喜于和希望多些：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test4" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test4" value="A" th:checked="${'A'.equals(test4)}"/>
             <label class="form-check-label">A 刺激。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test4" value="B" />
+            <input class="form-check-input" type="radio" name="test4"  value="B" th:checked="${'B'.equals(test4)}" />
             <label class="form-check-label">B 安全。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test4" value="C" />
+            <input class="form-check-input" type="radio" name="test4"   value="C" th:checked="${'C'.equals(test4)}" />
             <label class="form-check-label">C 挑战。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test4" value="D" />
+            <input class="form-check-input" type="radio" name="test4"  value="D" th:checked="${'D'.equals(test4)}" />
             <label class="form-check-label">D 稳定。</label>
         </div>
     </div>
@@ -94,19 +135,19 @@
     <div class="form-group">
         <label>5、我认为自己在情感上的基本特点是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test5" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test5" value="A" th:checked="${'A'.equals(test5)}"/>
             <label class="form-check-label">A 情绪多变，经常情绪波动。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test5" value="B" />
+            <input class="form-check-input" type="radio" name="test5"  value="B" th:checked="${'B'.equals(test5)}" />
             <label class="form-check-label">B 外表上自我抑制能力强，但内心感情起伏极大，一旦挫伤难以平复。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test5" value="C" />
+            <input class="form-check-input" type="radio" name="test5"   value="C" th:checked="${'C'.equals(test5)}" />
             <label class="form-check-label">C 感情不拖泥带水，较为直接，只是一旦不稳定，容易激动和发怒</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test5" value="D" />
+            <input class="form-check-input" type="radio" name="test5"  value="D" th:checked="${'D'.equals(test5)}" />
             <label class="form-check-label">D 天性情绪四平八稳。</label>
         </div>
     </div>
@@ -114,19 +155,19 @@
     <div class="form-group">
         <label>6、 我认为自己在整个人生中，除了工作以外，在控制欲上面，我：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test6" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test6" value="A" th:checked="${'A'.equals(test6)}"/>
             <label class="form-check-label">A 没有控制欲，只有感染带动他人的欲望，但自控能力不算强。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test6" value="B" />
+            <input class="form-check-input" type="radio" name="test6"  value="B" th:checked="${'B'.equals(test6)}" />
             <label class="form-check-label">B 用规则来保持我对自己的控制和对他人的要求。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test6" value="C" />
+            <input class="form-check-input" type="radio" name="test6"   value="C" th:checked="${'C'.equals(test6)}" />
             <label class="form-check-label">C 内心是有控制欲和希望别人服从我的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test6" value="D" />
+            <input class="form-check-input" type="radio" name="test6"  value="D" th:checked="${'D'.equals(test6)}" />
             <label class="form-check-label">D 不会有任何兴趣去影响别人，也不愿意别人来管控我。</label>
         </div>
     </div>
@@ -134,19 +175,19 @@
     <div class="form-group">
         <label>7、当与情人交往时，我倾向于着重：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test7" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test7" value="A" th:checked="${'A'.equals(test7)}"/>
             <label class="form-check-label">A 兴趣上的相容性，一起做喜欢的事情，对他的爱意溢于言表。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test7" value="B" />
+            <input class="form-check-input" type="radio" name="test7"  value="B" th:checked="${'B'.equals(test7)}" />
             <label class="form-check-label">B 思想上的相容性，体贴入微，对他的需求很敏感。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test7" value="C" />
+            <input class="form-check-input" type="radio" name="test7"   value="C" th:checked="${'C'.equals(test7)}" />
             <label class="form-check-label">C 智慧上的相容性，沟通重要的想法，客观地讨论辩论事情。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test7" value="D" />
+            <input class="form-check-input" type="radio" name="test7"  value="D" th:checked="${'D'.equals(test7)}" />
             <label class="form-check-label">D 和谐上的相容性，包容理解另一半的不同观点。</label>
         </div>
     </div>
@@ -154,19 +195,19 @@
     <div class="form-group">
         <label>8、在人际交往时，我：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test8" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test8" value="A" th:checked="${'A'.equals(test8)}"/>
             <label class="form-check-label">A 心态开放，可以快速建立起友谊和人际关系。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test8" value="B" />
+            <input class="form-check-input" type="radio" name="test8"  value="B" th:checked="${'B'.equals(test8)}" />
             <label class="form-check-label">B 非常审慎缓慢地进入，一旦认为是朋友，便长久地维持。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test8" value="C" />
+            <input class="form-check-input" type="radio" name="test8"   value="C" th:checked="${'C'.equals(test8)}" />
             <label class="form-check-label">C 希望在人际关系中占据主导地位。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test8" value="D" />
+            <input class="form-check-input" type="radio" name="test8"  value="D" th:checked="${'D'.equals(test8)}" />
             <label class="form-check-label">D 顺其自然，不温不火，相对被动。</label>
         </div>
     </div>
@@ -174,19 +215,19 @@
     <div class="form-group">
         <label>9、我认为自己大多数时候更是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test9" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test9" value="A" th:checked="${'A'.equals(test9)}"/>
             <label class="form-check-label">A 感情丰富的人。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test9" value="B" />
+            <input class="form-check-input" type="radio" name="test9"  value="B" th:checked="${'B'.equals(test9)}" />
             <label class="form-check-label">B 思路清晰的人。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test9" value="C" />
+            <input class="form-check-input" type="radio" name="test9"   value="C" th:checked="${'C'.equals(test9)}" />
             <label class="form-check-label">C 办事麻利的人。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test9" value="D" />
+            <input class="form-check-input" type="radio" name="test9"  value="D" th:checked="${'D'.equals(test9)}" />
             <label class="form-check-label">D 心态平静的人。</label>
         </div>
     </div>
@@ -194,19 +235,19 @@
     <div class="form-group">
         <label>10、通常我完成任务的方式是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test10" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test10" value="A" th:checked="${'A'.equals(test10)}" />
             <label class="form-check-label">A 经常会赶在最后期限前完成。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test10" value="B" />
+            <input class="form-check-input" type="radio" name="test10"  value="B" th:checked="${'B'.equals(test10)}" />
             <label class="form-check-label">B 自己做，精确地做，不要麻烦别人。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test10" value="C" />
+            <input class="form-check-input" type="radio" name="test10"   value="C" th:checked="${'C'.equals(test10)}" />
             <label class="form-check-label">C 先做，快速做。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test10" value="D" />
+            <input class="form-check-input" type="radio" name="test10"  value="D" th:checked="${'D'.equals(test10)}" />
             <label class="form-check-label">D 使用传统的方法，需要时从他人处得到帮忙。</label>
         </div>
     </div>
@@ -214,19 +255,19 @@
     <div class="form-group">
         <label>11、如果有人深深惹恼我时，我：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test11" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test11" value="A" th:checked="${'A'.equals(test11)}"/>
             <label class="form-check-label">A 内心感到受伤，认为没有原谅的可能，可最终很多时候还是会原谅对方。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test11" value="B" />
+            <input class="form-check-input" type="radio" name="test11"  value="B" th:checked="${'B'.equals(test11)}" />
             <label class="form-check-label">B 深深感到愤怒，如此之深怎可忘记？我会牢记，同时未来完全避开那个家伙。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test11" value="C" />
+            <input class="form-check-input" type="radio" name="test11"   value="C" th:checked="${'C'.equals(test11)}" />
             <label class="form-check-label">C 会火冒三丈，并且内心期望有机会狠狠地回应打击。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test11" value="D" />
+            <input class="form-check-input" type="radio" name="test11"  value="D" th:checked="${'D'.equals(test11)}" />
             <label class="form-check-label">D 我会避免摊牌，因为那还不到那个地步，那个人多行不义必自毙，或者自己再去找新朋友。</label>
         </div>
     </div>
@@ -234,19 +275,19 @@
     <div class="form-group">
         <label>12、在人际关系中，我最在意的是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test12" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test12" value="A" th:checked="${'A'.equals(test12)}"/>
             <label class="form-check-label">A 希望能够有尽量多的人生体验，所以会有非常多样化的想法。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test12" value="B" />
+            <input class="form-check-input" type="radio" name="test12"  value="B" th:checked="${'B'.equals(test12)}" />
             <label class="form-check-label">B 在小心合理的基础上，谨慎地确定自己的目标，一旦确定会坚定不移地去做。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test12" value="C" />
+            <input class="form-check-input" type="radio" name="test12"   value="C" th:checked="${'C'.equals(test12)}" />
             <label class="form-check-label">C 更加注重的是取得一切有可能的成就。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test12" value="D" />
+            <input class="form-check-input" type="radio" name="test12"  value="D" th:checked="${'D'.equals(test12)}" />
             <label class="form-check-label">D 宁愿剔除风险而享受平静或现状。</label>
         </div>
     </div>
@@ -254,19 +295,19 @@
     <div class="form-group">
         <label>13、关于人生观，我的内心其实是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test13" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test13" value="A" th:checked="${'A'.equals(test13)}"/>
             <label class="form-check-label">A 得到他人的赞美和欢迎。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test13" value="B" />
+            <input class="form-check-input" type="radio" name="test13"  value="B" th:checked="${'B'.equals(test13)}" />
             <label class="form-check-label">B 得到他人的理解和欣赏。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test13" value="C" />
+            <input class="form-check-input" type="radio" name="test13"   value="C" th:checked="${'C'.equals(test13)}" />
             <label class="form-check-label">C 得到他人的感激和尊敬。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test13" value="D" />
+            <input class="form-check-input" type="radio" name="test13"  value="D" th:checked="${'D'.equals(test13)}" />
             <label class="form-check-label">D 得到他人的尊重和接纳。</label>
         </div>
     </div>
@@ -274,19 +315,19 @@
     <div class="form-group">
         <label>14、我过往的老师最有可能对我的评价是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test14" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test14" value="A" th:checked="${'A'.equals(test14)}"/>
             <label class="form-check-label">A 情绪起伏大，善于表达和抒发情感。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test14" value="B" />
+            <input class="form-check-input" type="radio" name="test14"  value="B" th:checked="${'B'.equals(test14)}" />
             <label class="form-check-label">B 严格保护自己的私密，有时会显得孤独或是不合群。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test14" value="C" />
+            <input class="form-check-input" type="radio" name="test14"   value="C" th:checked="${'C'.equals(test14)}" />
             <label class="form-check-label">C 动作敏捷又独立，并且喜欢自己做事情。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test14" value="D" />
+            <input class="form-check-input" type="radio" name="test14"  value="D" th:checked="${'D'.equals(test14)}" />
             <label class="form-check-label">D 看起来安稳轻松，反应度偏低，比较温和。</label>
         </div>
     </div>
@@ -294,19 +335,19 @@
     <div class="form-group">
         <label>15、朋友对我的评价最有可能的是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test15" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test15" value="A" th:checked="${'A'.equals(test15)}"/>
             <label class="form-check-label">A 喜欢对朋友述说事情，也有能量说服别人去做事。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test15" value="B" />
+            <input class="form-check-input" type="radio" name="test15"  value="B" th:checked="${'B'.equals(test15)}" />
             <label class="form-check-label">B 能够提出很多周全的问题，而且需要许多精细的解说。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test15" value="C" />
+            <input class="form-check-input" type="radio" name="test15"   value="C" th:checked="${'C'.equals(test15)}" />
             <label class="form-check-label">C 愿意直言表达想法，有时会直率而犀利地谈论不喜欢的人、事、物。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test15" value="D" />
+            <input class="form-check-input" type="radio" name="test15"  value="D" th:checked="${'D'.equals(test15)}" />
             <label class="form-check-label">D 通常与他人一起是多听少说。</label>
         </div>
     </div>
@@ -314,19 +355,19 @@
     <div class="form-group">
         <label>16、在帮助他人的问题上，我倾向于：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test16" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test16" value="A" th:checked="${'A'.equals(test16)}"/>
             <label class="form-check-label">A 多一事不如少一事，但若他来找我，那我定会帮他。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test16" value="B" />
+            <input class="form-check-input" type="radio" name="test16"  value="B" th:checked="${'B'.equals(test16)}" />
             <label class="form-check-label">B 值得帮助的人应该帮助，锦上添花犹胜雪中送炭。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test16" value="C" />
+            <input class="form-check-input" type="radio" name="test16"   value="C" th:checked="${'C'.equals(test16)}" />
             <label class="form-check-label">C 无关者何必要帮，但我若承诺，必欲完之而后释然。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test16" value="D" />
+            <input class="form-check-input" type="radio" name="test16"  value="D" th:checked="${'D'.equals(test16)}" />
             <label class="form-check-label">D 虽无英雄打虎之胆，却有自告奋勇之心。</label>
         </div>
     </div>
@@ -334,19 +375,19 @@
     <div class="form-group">
         <label>17、面对他人对自己的赞美，我的本能反应是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test17" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test17" value="A" th:checked="${'A'.equals(test17)}"/>
             <label class="form-check-label">A 没有也无所谓，特别欣喜那也不至于。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test17" value="B" />
+            <input class="form-check-input" type="radio" name="test17"  value="B" th:checked="${'B'.equals(test17)}" />
             <label class="form-check-label">B 我不需要那些无关痛痒的赞美，宁可他们欣赏我的能力。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test17" value="C" />
+            <input class="form-check-input" type="radio" name="test17"   value="C" th:checked="${'C'.equals(test17)}" />
             <label class="form-check-label">C 有点怀疑对方是否认真或者立即回避众人的关注。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test17" value="D" />
+            <input class="form-check-input" type="radio" name="test17"  value="D" th:checked="${'D'.equals(test17)}" />
             <label class="form-check-label">D 赞美总是一件令人心情非常愉悦的事。</label>
         </div>
     </div>
@@ -354,19 +395,19 @@
     <div class="form-group">
         <label>18、面对生活的现状，我的行为习惯更加倾向于：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test18" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test18" value="A" th:checked="${'A'.equals(test18)}"/>
             <label class="form-check-label">A 外面怎么变化与我无关，我觉得自己这样还不错。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test18" value="B" />
+            <input class="form-check-input" type="radio" name="test18"  value="B" th:checked="${'B'.equals(test18)}" />
             <label class="form-check-label">B 这个世界如果我没什么进步，别人就会进步，所以我需要不停地前进。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test18" value="C" />
+            <input class="form-check-input" type="radio" name="test18"   value="C" th:checked="${'C'.equals(test18)}" />
             <label class="form-check-label">C 在所有的问题未发生之前，就应该尽量想好所有的可能性。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test18" value="D" />
+            <input class="form-check-input" type="radio" name="test18"  value="D" th:checked="${'D'.equals(test18)}" />
             <label class="form-check-label">D 每天的生活开心快乐最重要。</label>
         </div>
     </div>
@@ -374,19 +415,19 @@
     <div class="form-group">
         <label>19、对于规则，我内心的态度是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test19" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test19" value="A" th:checked="${'A'.equals(test19)}"/>
             <label class="form-check-label">A 不愿违反规则，但可能因为松散而无法达到规则的要求。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test19" value="B" />
+            <input class="form-check-input" type="radio" name="test19"  value="B" th:checked="${'B'.equals(test19)}" />
             <label class="form-check-label">B 打破规则，希望由自己来制定规则而不是遵守规则。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test19" value="C" />
+            <input class="form-check-input" type="radio" name="test19"   value="C" th:checked="${'C'.equals(test19)}" />
             <label class="form-check-label">C 严格遵守规则，并且竭尽全力做到规则内的最好。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test19" value="D" />
+            <input class="form-check-input" type="radio" name="test19"  value="D" th:checked="${'D'.equals(test19)}" />
             <label class="form-check-label">D 不喜被规则束缚，不按规则出牌会觉得新鲜有趣。</label>
         </div>
     </div>
@@ -394,19 +435,19 @@
     <div class="form-group">
         <label>20、我认为自己在行为上的基本特点是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test20" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test20" value="A" th:checked="${'A'.equals(test20)}"/>
             <label class="form-check-label">A 慢条斯理，办事按部就班，能与周围的人协调一致。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test20" value="B" />
+            <input class="form-check-input" type="radio" name="test20"  value="B" th:checked="${'B'.equals(test20)}" />
             <label class="form-check-label">B 目标明确，集中精力为实现目标而努力，善于抓住核心要点。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test20" value="C" />
+            <input class="form-check-input" type="radio" name="test20"   value="C" th:checked="${'C'.equals(test20)}" />
             <label class="form-check-label">C 慎重小心，为做好预防及善后，会不惜一切而尽心操劳。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test20" value="D" />
+            <input class="form-check-input" type="radio" name="test20"  value="D" th:checked="${'D'.equals(test20)}" />
             <label class="form-check-label">D 丰富跃动，不喜欢制度和约束，倾向于快速反应。</label>
         </div>
     </div>
@@ -414,19 +455,19 @@
     <div class="form-group">
         <label>21、在面对压力时，我比较倾向于选用：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test21" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test21" value="A" th:checked="${'A'.equals(test21)}"/>
             <label class="form-check-label">A 眼不见为净地化解压力。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test21" value="B" />
+            <input class="form-check-input" type="radio" name="test21"  value="B" th:checked="${'B'.equals(test21)}" />
             <label class="form-check-label">B 压力越大抵抗力越大。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test21" value="C" />
+            <input class="form-check-input" type="radio" name="test21"   value="C" th:checked="${'C'.equals(test21)}" />
             <label class="form-check-label">C 和别人讲也不一定有用，压力在自己的内心慢慢地咀嚼。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test21" value="D" />
+            <input class="form-check-input" type="radio" name="test21"  value="D" th:checked="${'D'.equals(test21)}" />
             <label class="form-check-label">D 本能地回避压力，回避不掉就用各种方法来宣泄出去。</label>
         </div>
     </div>
@@ -434,19 +475,19 @@
     <div class="form-group">
         <label>22、 当结束一段刻骨铭心的感情时，我会：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test22" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test22" value="A" th:checked="${'A'.equals(test22)}"/>
             <label class="form-check-label">A 非常难受，可是日子总还是要过的，时间会冲淡一切的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test22" value="B" />
+            <input class="form-check-input" type="radio" name="test22"  value="B" th:checked="${'B'.equals(test22)}" />
             <label class="form-check-label">B 虽然觉得受伤，但一旦下定决心，就会努力把过去的影子摔掉。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test22" value="C" />
+            <input class="form-check-input" type="radio" name="test22"   value="C" th:checked="${'C'.equals(test22)}" />
             <label class="form-check-label">C 深陷在悲伤的情绪中，在相当长的时期里难以自拔，也不愿再接受新的人。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test22" value="D" />
+            <input class="form-check-input" type="radio" name="test22"  value="D" th:checked="${'D'.equals(test22)}" />
             <label class="form-check-label">D 痛不欲生，需要找朋友倾诉或者找渠道发泄，寻求化解之道。</label>
         </div>
     </div>
@@ -454,19 +495,19 @@
     <div class="form-group">
         <label>23、面对他人的倾诉，我回顾自己大多时候本能上倾向于：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test23" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test23" value="A" th:checked="${'A'.equals(test23)}"/>
             <label class="form-check-label">A 认同并理解对方感受。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test23" value="B" />
+            <input class="form-check-input" type="radio" name="test23"  value="B" th:checked="${'B'.equals(test23)}" />
             <label class="form-check-label">B 做出一些定论或判断。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test23" value="C" />
+            <input class="form-check-input" type="radio" name="test23"   value="C" th:checked="${'C'.equals(test23)}" />
             <label class="form-check-label">C 给予一些分析或推理。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test23" value="D" />
+            <input class="form-check-input" type="radio" name="test23"  value="D" th:checked="${'D'.equals(test23)}" />
             <label class="form-check-label">D 发表一些评论或意见。</label>
         </div>
     </div>
@@ -474,19 +515,19 @@
     <div class="form-group">
         <label>24、我在以下哪个群体中较感满足？</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test24" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test24" value="A" th:checked="${'A'.equals(test24)}"/>
             <label class="form-check-label">A 能心平气和最终大家达成一致结论的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test24" value="B" />
+            <input class="form-check-input" type="radio" name="test24"  value="B" th:checked="${'B'.equals(test24)}" />
             <label class="form-check-label">B 能彼此展开充分激烈的辩论。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test24" value="C" />
+            <input class="form-check-input" type="radio" name="test24"   value="C" th:checked="${'C'.equals(test24)}" />
             <label class="form-check-label">C 能详细讨论事情的好坏和影响的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test24" value="D" />
+            <input class="form-check-input" type="radio" name="test24"  value="D" th:checked="${'D'.equals(test24)}" />
             <label class="form-check-label">D 能随意无拘束地自由散谈，同时又很开心。</label>
         </div>
     </div>
@@ -494,19 +535,19 @@
     <div class="form-group">
         <label>25、在内心的真实想法里，我觉得工作：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test25" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test25" value="A" th:checked="${'A'.equals(test25)}"/>
             <label class="form-check-label">A 如果不必有压力，可以让我做我熟悉的工作那就不错。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test25" value="B" />
+            <input class="form-check-input" type="radio" name="test25"  value="B" th:checked="${'B'.equals(test25)}" />
             <label class="form-check-label">B 应该以最快的速度完成，且争取去完成更多的任务。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test25" value="C" />
+            <input class="form-check-input" type="radio" name="test25"   value="C" th:checked="${'C'.equals(test25)}" />
             <label class="form-check-label">C 要么不做，要做就做到最好。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test25" value="D" />
+            <input class="form-check-input" type="radio" name="test25"  value="D" th:checked="${'D'.equals(test25)}" />
             <label class="form-check-label">D 如果能将乐趣融合在里面那就太棒了，不过如果不喜欢的工作实在没劲。</label>
         </div>
     </div>
@@ -514,19 +555,19 @@
     <div class="form-group">
         <label>26、如果我是领导，我内心更希望在部属心目中，我是</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test26" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test26" value="A" th:checked="${'A'.equals(test26)}"/>
             <label class="form-check-label">A 可以亲近的和善于为他们着想的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test26" value="B" />
+            <input class="form-check-input" type="radio" name="test26"  value="B" th:checked="${'B'.equals(test26)}" />
             <label class="form-check-label">B 有很强的能力和富有领导力的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test26" value="C" />
+            <input class="form-check-input" type="radio" name="test26"   value="C" th:checked="${'C'.equals(test26)}" />
             <label class="form-check-label">C 公平公正且足以信赖的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test26" value="D" />
+            <input class="form-check-input" type="radio" name="test26"  value="D" th:checked="${'D'.equals(test26)}" />
             <label class="form-check-label">D 被他们喜欢并且觉得富有感召力的。</label>
         </div>
     </div>
@@ -534,19 +575,19 @@
     <div class="form-group">
         <label>27、我希望得到的认同方式是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test27" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test27" value="A" th:checked="${'A'.equals(test27)}"/>
             <label class="form-check-label">A 无所谓别人是否认同。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test27" value="B" />
+            <input class="form-check-input" type="radio" name="test27"  value="B" th:checked="${'B'.equals(test27)}" />
             <label class="form-check-label">B 精英群体的认同最重要。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test27" value="C" />
+            <input class="form-check-input" type="radio" name="test27"   value="C" th:checked="${'C'.equals(test27)}" />
             <label class="form-check-label">C 只要我认同的人或者我在乎的人的认同就可以了。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test27" value="D" />
+            <input class="form-check-input" type="radio" name="test27"  value="D" th:checked="${'D'.equals(test27)}" />
             <label class="form-check-label">D 希望得到所有大众的认同。</label>
         </div>
     </div>
@@ -554,19 +595,19 @@
     <div class="form-group">
         <label>28、当我还是个孩子的时候，我：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test28" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test28" value="A" th:checked="${'A'.equals(test28)}"/>
             <label class="form-check-label">A 不太会积极尝试新事物，通常比较喜欢旧有的和熟悉的</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test28" value="B" />
+            <input class="form-check-input" type="radio" name="test28"  value="B" th:checked="${'B'.equals(test28)}" />
             <label class="form-check-label">B 是孩子王，大家经常听我的决定。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test28" value="C" />
+            <input class="form-check-input" type="radio" name="test28"   value="C" th:checked="${'C'.equals(test28)}" />
             <label class="form-check-label">C 害羞见生人，有意识地回避。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test28" value="D" />
+            <input class="form-check-input" type="radio" name="test28"  value="D" th:checked="${'D'.equals(test28)}" />
             <label class="form-check-label">D 调皮可爱，在大部分的情况下是乐观而又热心的。</label>
         </div>
     </div>
@@ -574,19 +615,19 @@
     <div class="form-group">
         <label>29、如果我是父母，我也许是：</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test29" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test29" value="A" th:checked="${'A'.equals(test29)}"/>
             <label class="form-check-label">A 不愿干涉子女或者容易被说动的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test29" value="B" />
+            <input class="form-check-input" type="radio" name="test29"  value="B" th:checked="${'B'.equals(test29)}" />
             <label class="form-check-label">B 严厉的或者直接给予方向性指点的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test29" value="C" />
+            <input class="form-check-input" type="radio" name="test29"   value="C" th:checked="${'C'.equals(test29)}" />
             <label class="form-check-label">C 用行动代替语言来表示关爱或者高要求的。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test29" value="D" />
+            <input class="form-check-input" type="radio" name="test29"  value="D" th:checked="${'D'.equals(test29)}" />
             <label class="form-check-label">D 愿意陪伴孩子一起玩的，孩子的朋友们所喜欢和欢迎的。</label>
         </div>
     </div>
@@ -594,25 +635,25 @@
     <div class="form-group">
         <label>30、以下有四组格言，哪组里符合我感觉的数目最多?</label><br/>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test30" value="A" th:checked="${sex==0}"/>
+            <input class="form-check-input" type="radio" name="test30" value="A" th:checked="${'A'.equals(test30)}"/>
             <label class="form-check-label">A 最深刻的真理是最简单和最平凡的。要在人世间取得成功必须大智若愚。好脾气是一个人在社交中所能穿着的最佳服饰。知足是人生在世最大的幸福。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test30" value="B" />
-            <label class="form-check-label">B 走自己的路，让人家去说吧。虽然世界充满了苦难，但是苦难总是能战胜的.有所成就是人生唯一的真正的乐趣.对我而言解决一个问题和享受一个假期一样好。</label>
+            <input class="form-check-input" type="radio" name="test30"  value="B" th:checked="${'B'.equals(test30)}" />
+            <label class="form-check-label">B 走自己的路，让人家去说吧。虽然世界充满了苦难，但是苦难总是能战胜的.有所成就是人生的真正的乐趣.对我而言解决一个问题和享受一个假期一样好。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test30" value="C" />
+            <input class="form-check-input" type="radio" name="test30"   value="C" th:checked="${'C'.equals(test30)}" />
             <label class="form-check-label">C 一个不注意小事情的人，永远不会成功大事业。理性是灵魂中最高贵的因素。切忌浮夸铺张。与其说得过分，不如说得不全。谨慎比大胆要有力量得多。</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="test30" value="D" />
+            <input class="form-check-input" type="radio" name="test30"  value="D" th:checked="${'D'.equals(test30)}" />
             <label class="form-check-label">D 与其在死的时候握着一大把钱，还不如活时活得丰富多彩。任何时候都要最真实地对待你自己，这比什么都重要。使生活变成幻想，再把幻想化为现实。幸福不在于拥有金钱，而在于获得成就时的喜悦以及产生创造力的激情。</label>
         </div>
     </div>
 
 
-    <input type="submit"/>
+    <input class="sss" type="submit"/>
 </form>
 
 </body>

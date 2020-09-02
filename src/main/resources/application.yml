@@ -1,0 +1,4 @@
+# Tomcat
+server:
+    port: 7052
+    context-path: /

@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class Message {
+	private String test0;
     private String test1;
     private String test2;
     private String test3;
