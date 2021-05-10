@@ -82,7 +82,7 @@ public class HelloController {
         map.addAllAttributes(BeanUtil.beanToMap(message));
         map.addAttribute("path", "c.jpg");
         map.addAttribute("aaa", "戳、性格没有好坏之分，结果分析也只是仅供参考,不保证权威，最终解释权在你自己");
-        log.info("性别:"+message.getTest0()+getIpAddr(request)+"|"+红色+蓝色+黄色+绿色);
+        log.info("性别[{}],网名[{}],ip[{}],结果{}",message.getTest0(),message.getNickName(),getIpAddr(request),"|"+红色+蓝色+黄色+绿色);
         return "index";
     }
 

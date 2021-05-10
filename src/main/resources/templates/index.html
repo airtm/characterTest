@@ -33,7 +33,7 @@
     <div th:text="${explain3}"></div>
     <div th:text="${explain4}"></div>
 
-    <img  th:src="@{'http://localhost:7052/'+${path}}" height="700px">
+<!--    <img  th:src="@{'http://localhost:7052/'+${path}}" height="700px">-->
     <a  th:href="@{c.jpg}" th:text="${aaa}" target="_blank"></a>
 
 <!--    <figure class="image"><img src="../static/c.jpg" alt="" width="256" height="62" />-->
@@ -41,6 +41,8 @@
 <!--    </figure>-->
 
     <p>特别说明：所有问题没有好坏或对错之分，因此请一定要选择你“最自然的”反应，而不是你认为“最好的”，这样才能了解最真实的自己，共30题，请耐心完成！</p>
+    <label>你的网名：</label><br/>
+    <input type="text" name="nickName"/>
     <div class="form-group">
         <label>你的性别：</label><br/>
         <div class="form-check form-check-inline">
